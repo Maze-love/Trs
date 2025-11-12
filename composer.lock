@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a59389decc3f6069f384f7a80bf3f0f9",
+    "content-hash": "5c2483a78c8cd05dc3d9a1bd7f8ef5bc",
     "packages": [
         {
             "name": "brick/math",
@@ -5767,6 +5767,67 @@
                 }
             ],
             "time": "2025-09-27T09:00:46+00:00"
+        },
+        {
+            "name": "tightenco/parental",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tighten/parental.git",
+                "reference": "fd7dfc9513bbfececa609aa7fae2a66b49bd4238"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tighten/parental/zipball/fd7dfc9513bbfececa609aa7fae2a66b49bd4238",
+                "reference": "fd7dfc9513bbfececa609aa7fae2a66b49bd4238",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^9.0||^10.0||^11.0||^12.0",
+                "illuminate/events": "^9.0||^10.0||^11.0||^12.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0||^8.0||^9.0||^10.0",
+                "phpunit/phpunit": "^9.5.10||^10.5||^11.5.3",
+                "tightenco/duster": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Parental\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com",
+                    "homepage": "https://calebporzio.com/",
+                    "role": "author"
+                },
+                {
+                    "name": "Steve McDougall",
+                    "email": "juststevemcd@gmail.com",
+                    "homepage": "https://www.juststeveking.uk/",
+                    "role": "developer"
+                }
+            ],
+            "description": "A simple eloquent trait that allows relationships to be accessed through child models.",
+            "support": {
+                "issues": "https://github.com/tighten/parental/issues",
+                "source": "https://github.com/tighten/parental/tree/1.4.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/calebporzio",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-04-15T16:45:01+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

@@ -3,15 +3,19 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Admin;
+use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Parental\HasChildren;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
+    use HasChildren;
     /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +24,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password','type',
     ];
 
     /**
@@ -44,5 +48,27 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // overrides raw class names of databases
+    protected $childTypes=[
+        'Admin'=>Admin::class,
+        'Customer'=>Customer::class,
+        'Manager'=>Manager::class,
+        'Travel_agent'=>TravelAgent::class
+    ];
+
+    // a user login and logout first
+    public function login($data){
+        // dd($data);
+        if (Auth::attempt($data)) return true;
+        else return false;
+    }
+    public function leave(){
+        Auth::logout();
+    }
+    // accessing their role
+    public function getRole(){
+        return $this->attributes['type'];
     }
 }

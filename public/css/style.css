@@ -1,0 +1,704 @@
+/* @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
+
+@font-face {
+    font-family: "custom";
+    src: url(Lexend-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: "custom", sans-serif;
+    font-style: normal;
+    box-sizing: border-box;
+    font-size: 0.93rem;
+}
+
+/*--navbar-*/
+.navbar {
+    background-color: rgba(10, 10, 10, 0.849);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+/*-aimade start--*/
+/* SIDEBAR STYLES */
+
+.wrapper {
+    min-width: 250px;
+    max-width: 260px;
+    background: #22223b;
+    color: #fff;
+    transition: all 0.3s;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    margin-left: -250px;
+    top: 3.9em;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px 0 rgba(34, 34, 59, 0.08);
+    z-index: 10;
+}
+.wrapper-show {
+    margin-left: 0px;
+}
+.sidebar-logo {
+    padding: 1.5rem 1.3rem 1.2rem 1.3rem;
+    background: #4a4e69;
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+.sidebar-logo a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.sidebar-logo a:hover {
+    color: #f2e9e4;
+}
+.list-items {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+}
+.sidebar-header {
+    padding: 1.2rem 1.3rem 0.7rem 1.3rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9a8c98;
+    font-weight: 700;
+}
+.sidebar-item {
+    margin-bottom: 0.2rem;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.3rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.04rem;
+    border-left: 3px solid transparent;
+    transition: background 0.13s, color 0.13s, border-color 0.13s;
+}
+.sidebar-link:hover,
+.sidebar-link:focus {
+    background: #393c56;
+    color: #c9ada7;
+    border-left: 3px solid #c9ada7;
+}
+.sidebar-link.collapsed:after {
+    content: "\f078"; /* Font Awesome chevron-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: auto;
+    font-size: 0.85em;
+    transition: transform 0.2s;
+}
+.sidebar-link[aria-expanded="true"].collapsed:after {
+    transform: rotate(-180deg);
+}
+.sidebar-dropdown {
+    background: #23244d;
+    margin-left: 0;
+    border-left: 2.5px solid #c9ada7;
+}
+.sidebar-dropdown .sidebar-link {
+    font-size: 0.98rem;
+    padding-left: 2.2rem;
+    color: #f2e9e4;
+    border-left: none;
+}
+.sidebar-dropdown .sidebar-link:hover {
+    background: #2e2f54;
+    color: #9a8c98;
+}
+.sidebar-toggle-btn {
+    display: block;
+    /* position: fixed; */
+    top: 1.2rem;
+    left: 1rem;
+    z-index: 10;
+    background: #22223b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(34, 34, 59, 0.17);
+}
+
+/*-hero section-*/
+.hero-section {
+    margin-top: 4em;
+    min-height: 80vh;
+
+    /* background: linear-gradient(135deg, #0d6efd 60%, #012c1c 100%); */
+    background: url(/images/pexels-element5-1051075.jpg) no-repeat fixed center;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(1, 14, 27, 0.45);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.hero-section header {
+    font-size: 2.5em;
+    text-align: center;
+    color: white;
+}
+/*-hero section end-*/
+
+/*- filter forms -*/
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 1.3em;
+}
+
+.range-value {
+    font-size: 0.9rem;
+    color: #555;
+}
+.module {
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+    top: -70px;
+    /* margin-top: 3em; */
+    background-color: #fff;
+    border-radius: 1em;
+    z-index: 9;
+    padding: 1em 0em;
+}
+
+.module-expand {
+    padding-bottom: 25em;
+}
+
+.filter_page {
+    position: absolute;
+    top: -40px;
+    right: -400px;
+    border-radius: 0.5em;
+    background-color: #fff;
+    max-width: 400px;
+    transition: all 0.5s ease;
+}
+.filter_page-show {
+    right: 5px;
+}
+
+/* Custom CSS for the card */
+
+/* Grid layout for cards */
+.trip-container .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 15px;
+    margin-bottom: 3em;
+    padding: 1em 0em;
+}
+
+/* .trip-container{
+    padding: 0;
+   
+} */
+.trip-container .card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.trip-container .card-1:hover {
+    transform: translateY(-5px);
+}
+
+.trip-container .card-header {
+    padding: 0.3em;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    border-bottom: none;
+}
+
+.trip-container .card-header img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.trip-container .card-1:hover .card-header img {
+    transform: scale(1.01);
+}
+
+.date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.trip-title {
+    display: block;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.trip-title:hover {
+    color: #007bff;
+}
+
+.trip-info {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.utility {
+    margin-top: 10px; /* Reduced margin */
+}
+
+.links a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: #0056b3;
+}
+
+.links a.edit {
+    color: green;
+}
+
+.links a.edit:hover {
+    color: darkgreen;
+}
+
+.links a.delete {
+    color: red;
+}
+
+.links a.delete:hover {
+    color: darkred;
+}
+
+/*-side-bar widget--*/
+.sidebar-container {
+    background-color: #fffdfd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .widget {
+    /* border: 1px black solid; */
+    padding: 1em 1em;
+    margin-bottom: 1em;
+    margin: auto;
+}
+.widget .widget-title {
+    font-family: serif;
+    letter-spacing: 0.1em;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+.search-box {
+    position: relative;
+}
+.search-box .form-control {
+    border: 1px solid rgb(191, 190, 190);
+    height: 35px;
+    width: 250px;
+}
+.filter {
+    position: absolute;
+    top: 10%;
+    right: 90%;
+}
+.search-btn {
+    height: 35px;
+    background-color: #a5a5a5a4;
+    border: 1px solid grey;
+    border-radius: 0;
+}
+.search-btn:hover {
+    background-color: black;
+    color: white;
+}
+.widget ul {
+    font-family: monospace;
+    list-style-type: none;
+    padding: 0.5em;
+}
+.icon-list a,
+.widget-posts-title a {
+    text-decoration: none;
+    font-size: 0.89em;
+    color: black;
+    text-transform: capitalize;
+}
+.icon-list a:hover {
+    color: grey;
+    text-decoration: underline;
+}
+.widget .icon-list li a:before {
+    content: "\00BB";
+    color: #666666;
+    padding-right: 5px;
+}
+
+/*>> widget posts >>*/
+.widget-posts {
+    /* border: 1px solid black; */
+}
+.widget-posts .clearfix {
+    margin-bottom: 1em;
+}
+.widget-posts-meta {
+    color: grey;
+    font-style: italic;
+    font-size: 0.87em;
+}
+.widget-posts-image {
+    margin-right: 0.5em;
+    width: 75px;
+    float: left;
+}
+.widget-posts-image img {
+    width: 100%;
+}
+/*-detail .html-*/
+
+.trip-detail-container {
+    max-width: 700px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.tab-content {
+    padding: 20px;
+}
+
+.reservation-button {
+    margin-top: 20px;
+}
+
+/*-add trip form--*/
+.addTrip-form {
+    max-width: 500px;
+}
+/*--manage trip (table-image)-*/
+.table-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+/*-all can use this class for margin-*/
+.tops {
+    /* border: 1px solid black; */
+    margin-top: 7em;
+}
+
+/*-####  HOTEL SECTION ###-*/
+
+.hotel-hero {
+    background: linear-gradient(
+        to right,
+        #1a2a6c,
+        #b21f1f,
+        #fdbb2d
+    ); /* Gradient background */
+}
+/* card-componenet for bookings */
+.stat-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.stat-card .stat-icon {
+    font-size: 2.5rem;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    color: white;
+}
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.stat-card .stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Room card styling */
+.room-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.room-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/*-### personal Reservation ###-*/
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    margin-right: 0.75rem;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    height: 100%;
+    width: 4px;
+    background: #e9ecef;
+    border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+    .timeline::before {
+        left: 50%;
+        margin-left: -2px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .timeline-item {
+        margin-bottom: 4rem;
+    }
+}
+
+.timeline-content {
+    position: relative;
+    width: calc(100% - 4rem);
+    margin-left: 4rem;
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid #dee2e6;
+}
+
+@media (min-width: 768px) {
+    .timeline-content {
+        width: 45%;
+        margin-left: 0;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        float: left;
+        margin-right: 5%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        float: right;
+        margin-left: 5%;
+    }
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    font-size: 1.25rem;
+    border: 4px solid #f8f9fa;
+}
+
+@media (min-width: 768px) {
+    .timeline-icon {
+        left: 50%;
+    }
+}
+
+.hotel-name {
+    font-weight: 600;
+    color: #343a40;
+}
+
+.reservation-date {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.details-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.details-list li {
+    margin-bottom: 0.5rem;
+}
+
+.details-list .bi {
+    margin-right: 0.5rem;
+    color: #0d6efd;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+}
+
+.past-reservation .timeline-icon {
+    background-color: #6c757d;
+}
+
+.past-reservation .timeline-content {
+    opacity: 0.7;
+}
+/* manage Reservation */
+
+.manage-header {
+    background: linear-gradient(to right, #0052d4, #65c7f7, #9cecfb);
+    color: white;
+    padding: 2.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.widget-card {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+    overflow: hidden; /* Ensures child elements respect the border-radius */
+}
+
+.widget-card .widget-header {
+    padding: 1rem 1.25rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.widget-card .widget-header h5 {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.widget-card .widget-body {
+    padding: 1.25rem;
+}
+
+.list-group-item .item-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.list-group-item .item-value {
+    color: #212529;
+}
+
+.hotel-map {
+    height: 200px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><path fill="%23cccccc" d="M0 0h800v600H0z"/><text x="50%" y="50%" font-family="sans-serif" font-size="24" fill="%23999999" dominant-baseline="middle" text-anchor="middle">Map Placeholder</text></svg>');
+    background-size: cover;
+}
+
+.cancellation-policy {
+    background-color: #fff8e1;
+    border-left: 5px solid #ffc107;
+    padding: 1rem;
+}
