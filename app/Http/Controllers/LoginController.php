@@ -52,7 +52,7 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
             if($user->type=='Travel_agent'){
-                return redirect()->action([])->with("message","welcome "."$user->type");
+                return redirect()->action([TripController::class,'manage'])->with("message","welcome "."$user->type");
             }
             else if ($user->type=='Manager'){
                 return redirect()->action([HotelController::class,'index'])->with("message","welcome "."$user->type");
