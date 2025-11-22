@@ -1,0 +1,49 @@
+ @props(['trip'])
+    <!-- card4 -->
+        <div class="card card-1" {{$attributes->merge(['class'=>''])}}>
+            <div class="card-header">
+            
+                @php
+                    $place= $trip->destination;
+                    // dd($path->image->count())
+                @endphp
+                @if ($place)
+                        <img src="{{!$place->image->isEmpty() ? asset('storage/'.$place->image[0]->path):asset('/images/blog-1.jpg') }}"  alt="p-3">
+                @else
+                    <img src="{{asset('/images/blog-1.jpg') }}" alt="p-3">
+                    
+                @endif
+                
+                <span class="date">{{$trip->date}}</span>
+            </div>
+            
+            <div class="card-body">
+                <a href="/trip/view/{{$trip->id}}" class="trip-title">{{$trip->title}}</a>
+                <div class="trip-info">
+                    <span class="category">Category: {{$trip->category ? $trip->category->name : "null"}}</span><br>
+                    <span class="price mr-1">Price:<i class="fa fa-dollar"> {{$trip->price}}</i></span>
+                    <div class="infos ">
+                        <span class="destination me-1"><i class="fa-solid fa-location-dot"> </i>{{$trip->destination ? $trip->destination->title: "null"}}</span>|
+                        <span class="duration"><i class="fa-regular fa-clock"></i> {{$trip->duration}} days</span>
+                    </div>
+
+                    
+                    <div class="status">
+                        @php
+                            $number= $trip->hotel->count();
+                        @endphp
+                                @if ($number<1)
+                                
+                                    <span class="badge text-bg-danger">Unavailable</span>
+
+                                @else
+                                    <span class="badge text-bg-success">{{$number}} Hotel available</span>
+                                    
+                                @endif
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </div>
