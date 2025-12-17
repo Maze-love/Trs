@@ -63,7 +63,7 @@ class LoginController extends Controller
 
             }
             else if ($user->type=='Customer'){
-                return redirect()->action([])->with("message","welcome "."$user->type");
+                return redirect()->action([TripController::class,'index'])->with("message","welcome "."$user->type");
 
             }
 

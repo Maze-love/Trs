@@ -6,6 +6,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ReservationController;
 
 Route::get("/login",[LoginController::class,'showLogin']);
 Route::post("/login/post",[LoginController::class,'login']);
@@ -35,6 +36,8 @@ Route::get("/trip/create",[TripController::class,'create']);
 Route::get("/trip/view/{id}",[TripController::class,'show']);
 Route::post("/trips/post",[TripController::class,'store']);
 Route::get("/trip/manage",[TripController::class,'manage']);
+/*-search for trip mgmt table -*/
+Route::get("/trip/manage/page",[TripController::class,'manage']);
 Route::get("/trip/update/{trip}",[TripController::class,'update']);
 Route::put("/trip/edit/{id}",[TripController::class,'edit']);
 Route::delete("/trip/manage/delete/{trip}",[TripController::class,'destroy']);
@@ -59,3 +62,14 @@ Route::get("/place/manage",[PlaceController::class,'index']);
 Route::get('/place/{place}/edit', [PlaceController::class, 'edit']);
 Route::post('/place/update/{place}', [PlaceController::class, 'update']);
 Route::delete('/place/delete/{place}', [PlaceController::class, 'destroy']);
+       
+      # Manage reservations #
+Route::get("/hotel/trip/reserve/show",[ReservationController::class,'showAllReservation']);
+Route::post("/hotel/trip/reserve/manage/{id}",[ReservationController::class,'manageReservation']);
+      ## USER'S PATH ##
+// user's
+// hotel/trip reservation
+Route::post("/hotel/trip/reserve",[ReservationController::class,'reserve']);
+Route::get("/reserve/show",[ReservationController::class,'showUserReservation']);
+Route::get("/reserve/show/{id}",[ReservationController::class,'manageUserReservation']);
+Route::put("/reserve/update",[ReservationController::class,'updateReservation']);
