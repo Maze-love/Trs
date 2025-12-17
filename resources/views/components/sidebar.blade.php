@@ -34,7 +34,10 @@
                                     <a href="/trip/manage" class="sidebar-link">Manage Trips</a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="/place/manage" class="sidebar-link">Manage Places & Category</a>
+                                    <a href="/place/manage" class="sidebar-link">Manage Place</a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="/category/manage" class="sidebar-link">Manage Category</a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="/hotel/trip/reserve/show" class="sidebar-link">Manage trip/hotel Reservation</a>

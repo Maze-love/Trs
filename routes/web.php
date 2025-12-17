@@ -24,7 +24,7 @@ Route::get("/hotel/index",[HotelController::class,'index']);
 
 
 
-                        ### Trip controller ###
+                ## Trip Route(Travel_agent's) ##
 Route::get("/",[TripController::class,'index']);
                     
 // filtering 
@@ -39,19 +39,23 @@ Route::get("/trip/update/{trip}",[TripController::class,'update']);
 Route::put("/trip/edit/{id}",[TripController::class,'edit']);
 Route::delete("/trip/manage/delete/{trip}",[TripController::class,'destroy']);
 
-/*assign hotel*/
+        # Assign hotel #
 Route::get("/trip/manage/assign/{trip}",[TripController::class,'assign']);
 Route::post("/trip/hotel/assign",[TripController::class,'assignStore']);
 Route::delete("/trip/hotel/remove/{trip}",[TripController::class,'assignDelete']);
 
+            # Categories #
+Route::get("/category/manage",[CategoryController::class,'index']);
+Route::post("/category/post",[CategoryController::class,'store']);
+// NEW: Route for deleting/editing a category
+Route::get('/categories/{categoryId}/edit',[CategoryController::class,'edit']);
+Route::put('/categories/{categoryId}/update',[CategoryController::class,'update']);
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
-/*- places (destination) route-*/
+      # Places(Destinations) #
 Route::get("/place/create",[PlaceController::class,'create']);
 Route::post("/place/post",[PlaceController::class,'store']);
 Route::get("/place/manage",[PlaceController::class,'index']);
-
-/*-categories-*/
-Route::get("/place/create",[PlaceController::class,'create']);
-Route::post("/category/post",[PlaceController::class,'store']);
-Route::post("/category/manage",[CategoryController::class,'store']);
-
+Route::get('/place/{place}/edit', [PlaceController::class, 'edit']);
+Route::post('/place/update/{place}', [PlaceController::class, 'update']);
+Route::delete('/place/delete/{place}', [PlaceController::class, 'destroy']);

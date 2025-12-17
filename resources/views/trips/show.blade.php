@@ -105,7 +105,7 @@
 <x-column class="trip-detail-container">
       <!-- Hotel Tab -->
                 @php
-                    $user_id= Auth()->user()->id;
+                    $user_id= Auth()->user()->id ?? null;
                 @endphp
                 <form method="post" action="/hotel/trip/reserve" >
                     @csrf
