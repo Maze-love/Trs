@@ -6,6 +6,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ReservationController;
 
 Route::get("/login",[LoginController::class,'showLogin']);
 Route::post("/login/post",[LoginController::class,'login']);
@@ -24,7 +25,7 @@ Route::get("/hotel/index",[HotelController::class,'index']);
 
 
 
-                        ### Trip controller ###
+                ## Trip Route(Travel_agent's) ##
 Route::get("/",[TripController::class,'index']);
                     
 // filtering 
@@ -35,23 +36,41 @@ Route::get("/trip/create",[TripController::class,'create']);
 Route::get("/trip/view/{id}",[TripController::class,'show']);
 Route::post("/trips/post",[TripController::class,'store']);
 Route::get("/trip/manage",[TripController::class,'manage']);
+/*-search for trip mgmt table -*/
+Route::get("/trip/manage/page",[TripController::class,'manage']);
 Route::get("/trip/update/{trip}",[TripController::class,'update']);
 Route::put("/trip/edit/{id}",[TripController::class,'edit']);
 Route::delete("/trip/manage/delete/{trip}",[TripController::class,'destroy']);
 
-/*assign hotel*/
+        # Assign hotel #
 Route::get("/trip/manage/assign/{trip}",[TripController::class,'assign']);
 Route::post("/trip/hotel/assign",[TripController::class,'assignStore']);
 Route::delete("/trip/hotel/remove/{trip}",[TripController::class,'assignDelete']);
 
+            # Categories #
+Route::get("/category/manage",[CategoryController::class,'index']);
+Route::post("/category/post",[CategoryController::class,'store']);
+// NEW: Route for deleting/editing a category
+Route::get('/categories/{categoryId}/edit',[CategoryController::class,'edit']);
+Route::put('/categories/{categoryId}/update',[CategoryController::class,'update']);
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
-/*- places (destination) route-*/
+      # Places(Destinations) #
 Route::get("/place/create",[PlaceController::class,'create']);
 Route::post("/place/post",[PlaceController::class,'store']);
 Route::get("/place/manage",[PlaceController::class,'index']);
-
-/*-categories-*/
-Route::get("/place/create",[PlaceController::class,'create']);
-Route::post("/category/post",[PlaceController::class,'store']);
-Route::post("/category/manage",[CategoryController::class,'store']);
-
+Route::get('/place/{place}/edit', [PlaceController::class, 'edit']);
+Route::post('/place/update/{place}', [PlaceController::class, 'update']);
+Route::delete('/place/delete/{place}', [PlaceController::class, 'destroy']);
+       
+      # Manage reservations #
+Route::get("/hotel/trip/reserve/show",[ReservationController::class,'showAllReservation']);
+Route::post("/hotel/trip/reserve/manage/{id}",[ReservationController::class,'manageReservation']);
+      
+      ## USER'S PATH ##
+// user's
+// hotel/trip reservation
+Route::post("/hotel/trip/reserve",[ReservationController::class,'reserve']);
+Route::get("/reserve/show",[ReservationController::class,'showUserReservation']);
+Route::get("/reserve/show/{id}",[ReservationController::class,'manageUserReservation']);
+Route::put("/reserve/update",[ReservationController::class,'updateReservation']);

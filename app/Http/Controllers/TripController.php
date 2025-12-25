@@ -159,7 +159,7 @@ class TripController extends Controller
 
     // show Trips in table(managing)
     public function manage(){
-        return view('trips.manage',['trips'=>Trip::all()]);
+        return view('trips.manage',['trips'=>Trip::latest()->filter(request(['search']))->get()]);
         
     }
 

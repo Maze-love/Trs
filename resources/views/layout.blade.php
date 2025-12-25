@@ -7,7 +7,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="/bootstrap-5.3/css/bootstrap.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"> -->
-    {{-- <link rel="stylesheet" href="starability-master/starability-css/starability-all.css"> --}}
+    <link rel="stylesheet" href="starability-master/starability-css/starability-all.css">
     <link rel="stylesheet" href="/fontawesome-free-6.5.2-web/css/all.min.css">
     
     <script src="/jquery/dist/jquery.min.js"></script>

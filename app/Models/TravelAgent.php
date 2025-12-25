@@ -10,7 +10,7 @@ class TravelAgent extends User
 {
     //
     Use HasParent;
-     public function createPackage($data){
+    public function createPackage($data){
        return $this->trips()->create($data);
 
     }
@@ -23,7 +23,7 @@ class TravelAgent extends User
     }
 
     public function createCategories($data){
-        Category::create($data);
+        return Category::create($data);
     }
 
     public function updateCategory($data){

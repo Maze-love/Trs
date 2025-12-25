@@ -7,6 +7,7 @@ use App\Models\Destination;
 use Illuminate\Http\Request;
 
 use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Facades\Validator;
 
 class PlaceController extends Controller
 {
@@ -15,41 +16,95 @@ class PlaceController extends Controller
         return view('places.create');
     }
 
-    // to show all the places maybe categories..
+    // to show all the places
     public function index(){
         $destination= Destination::with('image')->get();
-        // dd($destination[2]->image);
-        
-    
-        return view('places.index',['places'=>$destination,'categories'=>Category::all()]);
+        return view('places.destinations',['places'=>$destination]);
     }
     
     // to store new place
     public function store(Request $request){
-        // dd($request->logo);
-        $formfields= $request->validate([
+        $validator = Validator::make($request->all(), [
             'title'=>'required',
+            'logo.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'      
         ]);
+   
+        if ($validator->passes()){
+            // Create the new destination
+            $formfield= $validator->validated();
+            $destination= Destination::create($formfield);
 
-        $destination= Destination::create($formfields);
-
-        if ($request->hasFile('logo')){
-            foreach ($request->file('logo') as $image) {
-                # code...
-                $path= $image->store('logos','public');
-                $destination->image()->create([
-                    'path'=>$path,
-                ]);
-
-
-
+            if ($request->hasFile('logo')){
+                foreach ($request->file('logo') as $image) {
+                    $path= $image->store('logos','public');
+                    $destination->image()->create([
+                        'path'=>$path,
+                    ]);
+                }
             }
-            // $formfields['logo']= $request->file('logo')->store('logos','public'); 
+        
+        $destination->load('image');
+            return response()->json([
+                'success' => true,
+                'message' => 'New destination added successfully!',
+                'destination' => $destination
+            ], 201); // 201 Created
+
+        } 
+        if ($validator->fails()) {
+
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors()
+            ], 422); // 422 Unprocessable Entity
         }
         
-        return back()->with('message',"new destination is added");
-
 
     }
+    
+    public function destroy(Destination $place){
+        $place->image()->delete();
+        $place->delete();
+
+        return response()->json(['success' => true, 'message' => 'Destination deleted successfully!']);
+    }
+    
+    public function edit(Destination $place){
+        return response()->json($place);
+    }
+
+    public function update(Request $request, Destination $place){
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'logo.*' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+        }
+
+        $formFields = $validator->validated();
+        $place->update(['title' => $formFields['title']]);
+
+        if ($request->hasFile('logo')) {
+            // Delete old images first
+            $place->image()->delete();
+
+            foreach ($request->file('logo') as $image) {
+                $path = $image->store('logos', 'public');
+                $place->image()->create(['path' => $path]);
+            }
+        }
+
+        $place->load('image');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Destination updated successfully!',
+            'destination' => $place
+        ]);
+    }
+
+
     
 }

@@ -176,6 +176,7 @@
     color: #555;
 }
 .module {
+    /* border: 1px solid red; */
     position: relative;
     overflow: hidden;
     top: -70px;
@@ -550,6 +551,12 @@
 @media (min-width: 768px) {
     .timeline-item {
         margin-bottom: 4rem;
+    }
+    /* Clearfix for the timeline item to contain floated content */
+    .timeline-item::after {
+        content: "";
+        display: table;
+        clear: both;
     }
 }
 

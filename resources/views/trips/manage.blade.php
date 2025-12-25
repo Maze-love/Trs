@@ -16,16 +16,17 @@
                     <h5 class="mb-2 mb-md-0">
                         <i class="bi bi-list-ul me-2"></i>All Trips
                     </h5>
-                    <div class="input-group" style="max-width: 300px">
-                        <input
-                            type="text"
-                            class="form-control form-control-sm"
-                            placeholder="Search by name, price, duration, confirmation..."/>
-
-                        <button class="btn btn-outline-secondary btn-sm" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+                    <form action="/trip/manage/page" method="GET">
+                        <div class="input-group" style="max-width: 300px">
+                            <input type="text" class="form-control form-control-sm" name="search"
+                                placeholder="Search by name, price, duration, confirmation..."
+                                value="{{request('search')}}"/>
+                            <button class="btn btn-outline-secondary btn-sm" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                
                 </div>
             </div>
 

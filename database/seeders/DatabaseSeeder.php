@@ -20,43 +20,43 @@ class DatabaseSeeder extends Seeder
     {
         // Hotel::factory(2)->create();
 
-        // Destination::factory(5)->create();
+        Destination::factory(3)->create();
 
          // Accounts
-        //  User::factory()->create([
-        //     'name' => 'Aman',
-        //     'email' => 'aman@gmail.com',
-        //     'password'=>'123',
-        //     'type'=>'Customer'
-        // ]);
-        //  User::factory()->create([
-        //     'name' => 'dom',
-        //     'email' => 'dom@gmail.com',
-        //     'password'=>'222',
-        //     'type'=>'Customer'
-        // ]);
+        User::factory()->create([
+            'name' => 'Aman',
+            'email' => 'aman@gmail.com',
+            'password'=>'123',
+            'type'=>'Customer'
+        ]);
+        User::factory()->create([
+            'name' => 'dom',
+            'email' => 'dom@gmail.com',
+            'password'=>'222',
+            'type'=>'Customer'
+        ]);
         
         // // hotel managers
-       $manager1= Manager::factory()->create([
+        $manager1= Manager::factory()->create([
             'name' => 'Mere',
             'email' => 'mere@gmail.com',
             'password'=>'222',
             'type'=>'Manager'
         ]);
 
-       $manager2= Manager::factory()->create([
+        $manager2= Manager::factory()->create([
             'name' => 'Molly',
             'email' => 'molly@gmail.com',
             'password'=>'333',
             'type'=>'Manager'
         ]);
         
-        // User::factory()->create([
-        //     'name' => 'Lorry',
-        //     'email' => 'lorry@gmail.com',
-        //     'password'=>'777',
-        //     'type'=>'Manager'
-        // ]);
+        User::factory()->create([
+            'name' => 'Lorry',
+            'email' => 'lorry@gmail.com',
+            'password'=>'777',
+            'type'=>'Manager'
+        ]);
 
         // //TravelAgent
         User::factory()->create([
@@ -67,12 +67,12 @@ class DatabaseSeeder extends Seeder
         ]);
         
         // //Admin
-        // User::factory()->create([
-        //     'name' => 'Alex',
-        //     'email' => 'alex@gmail.com',
-        //     'password'=>'789',
-        //     'type'=>'Admin'
-        // ]);
+        User::factory()->create([
+            'name' => 'Alex',
+            'email' => 'alex@gmail.com',
+            'password'=>'789',
+            'type'=>'Admin'
+        ]);
 
 
         Hotel::factory()
