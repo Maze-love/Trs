@@ -66,6 +66,7 @@ Route::delete('/place/delete/{place}', [PlaceController::class, 'destroy']);
       # Manage reservations #
 Route::get("/hotel/trip/reserve/show",[ReservationController::class,'showAllReservation']);
 Route::post("/hotel/trip/reserve/manage/{id}",[ReservationController::class,'manageReservation']);
+      
       ## USER'S PATH ##
 // user's
 // hotel/trip reservation

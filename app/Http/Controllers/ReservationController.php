@@ -170,7 +170,7 @@ class ReservationController extends Controller
     
     //Hotel Booking section
 
-
+    
    
 
 }
